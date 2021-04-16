@@ -1,9 +1,13 @@
 package com.fnbspringboot.DependencyInjection.controllers;
 
 import com.fnbspringboot.DependencyInjection.services.GreetingServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class PropertyInjectedController {
 
+    @Autowired //injector
     public GreetingServiceImpl greetingService;
 
     // ****** INSTEAD OF DOING THIS *******//
@@ -21,7 +25,7 @@ public class PropertyInjectedController {
     /*
             and avoid getter
      */
-    String sayHello(){
+    public String sayHello(){
         return greetingService.sayGreeting();
     }
 }
