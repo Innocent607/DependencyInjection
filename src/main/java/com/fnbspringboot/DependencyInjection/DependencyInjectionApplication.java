@@ -4,6 +4,7 @@ import com.fnbspringboot.DependencyInjection.controllers.ConstructorInjectedCont
 import com.fnbspringboot.DependencyInjection.controllers.MyController;
 import com.fnbspringboot.DependencyInjection.controllers.PropertyInjectedController;
 import com.fnbspringboot.DependencyInjection.controllers.SetterInjectedController;
+import com.fnbspringboot.DependencyInjection.services.PrimaryGreetingService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,11 +16,13 @@ public class DependencyInjectionApplication {
 		ApplicationContext ctx = SpringApplication.run(DependencyInjectionApplication.class, args);
 
 		MyController controller = (MyController) ctx.getBean("myController");
+
 		controller.hello();
 
 		/*
 			RUNNING DIFFERENT DEPENDENCY INJECTION INTEGRATIONS
 		 */
+		System.out.println(controller.hello());
 		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
