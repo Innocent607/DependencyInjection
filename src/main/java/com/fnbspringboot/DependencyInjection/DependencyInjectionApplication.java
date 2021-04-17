@@ -17,6 +17,9 @@ public class DependencyInjectionApplication {
 		MyController controller = (MyController) ctx.getBean("myController");
 		controller.hello();
 
+		/*
+			RUNNING DIFFERENT DEPENDENCY INJECTION INTEGRATIONS
+		 */
 		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
