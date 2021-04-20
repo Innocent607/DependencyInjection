@@ -1,5 +1,6 @@
 package com.fnbspringboot.DependencyInjection.controllers;
 
+import com.fnbspringboot.DependencyInjection.repositories.GreetingRepository;
 import com.fnbspringboot.DependencyInjection.services.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,10 +16,12 @@ public class MyController {
             2. and a Constructor
      */
     private GreetingService greetingService;
+    private GreetingRepository greetingRepository;
 
 
-    public MyController(GreetingService greetingService) {
+    public MyController(GreetingService greetingService, GreetingRepository greetingRepository) {
         this.greetingService = greetingService;
+        this.greetingRepository = greetingRepository;
     }
 
     // this was our normal controller method we started with
