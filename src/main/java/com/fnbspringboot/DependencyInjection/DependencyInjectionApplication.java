@@ -13,7 +13,12 @@ import org.springframework.context.ApplicationContext;
 public class DependencyInjectionApplication {
 
 	public static void main(String[] args) {
+
 		ApplicationContext ctx = SpringApplication.run(DependencyInjectionApplication.class, args);
+
+		System.out.println("Whatever you see next is executed through my controller");
+		System.out.println("Dadada, TadaaaHH!");
+		System.out.println("---------------------------------------------------------");
 
 		MyController controller = (MyController) ctx.getBean("myController");
 
@@ -22,6 +27,9 @@ public class DependencyInjectionApplication {
 		/*
 			RUNNING DIFFERENT DEPENDENCY INJECTION INTEGRATIONS
 		 */
+		System.out.println("Whatever you see next is executed through my IoC and DI");
+		System.out.println("Dadada, TadaaaHH!");
+		System.out.println("---------------------------------------------------------");
 		System.out.println(controller.hello());
 		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
